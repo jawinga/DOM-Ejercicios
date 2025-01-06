@@ -14,10 +14,24 @@ let tweetContent = document.querySelector("#tweet-content");
 let publishTweet = document.querySelector("#publish-tweet");
 let filterCategory = document.querySelector("#filter-category");
 let tweetList = document.querySelector("#tweet-list");
+let charCount = document.querySelector("#char-count");
+
+let titulo = tweetTitle.value;
+let categoria = tweetCategory.value;
 
 publishTweet.addEventListener("click", (e) => {
   // 1. El usuario introducirá el título del tweet y su temática en imputs diferentes
+});
 
-  let titulo = tweetTitle.value;
-  let categoria = tweetCategory.value;
+tweetContent.addEventListener("input", (e) => {
+  let content = e.target.value;
+  let countChar = content.length;
+  console.log(countChar);
+  charCount.textContent = `${countChar}`;
+
+  if (countChar > 280) {
+    charCount.style.color = "red";
+  } else {
+    charCount.style.color = "";
+  }
 });
